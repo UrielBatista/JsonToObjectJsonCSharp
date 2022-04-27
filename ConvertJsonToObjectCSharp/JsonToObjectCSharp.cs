@@ -15,14 +15,18 @@ namespace oneTwoTree.ConvertJsonToObject
                 string json = r.ReadToEnd();
                 var elemensJson = json.Split(",");
                 string newJsonData = "{";
+
+                // WIP - to duplicate name of class list in other objects in flow structure.
+                int countOppenerArray = 0;
                 foreach (var element in elemensJson)
                 {
                     int countAsps = CountAllAsps(element);
                     _ = countAsps;
 
                     var boolContainClass = element.Contains(": {");
-                    var boolContainList = element.Contains(": [");
-                    _ = boolContainList;
+                    var boolContainOpenerList = element.Contains(": [");
+                    var boolContainClosedList = element.Contains("]");
+                    _ = boolContainOpenerList;
 
                     if (countAsps >= 4)
                     {
@@ -35,14 +39,18 @@ namespace oneTwoTree.ConvertJsonToObject
                             var elementTypeString = elementsTypesStringFromRemove.Replace(":", " =");
                             newJsonData += elementTypeString;
                         }
-                        //else if (boolContainList == true)
-                        //{
-                        //    var elementWithListMethod = ContainListMthod(newElementToUpperString);
-                        //    _ = elementWithListMethod;
-                        //    string elementsTypesOthersFromRegex = Regex.Replace(elementWithListMethod, @"[""]", string.Empty);
-                        //    var elementTypeOthers = elementsTypesOthersFromRegex.Replace(":", " =");
-                        //    newJsonData += elementTypeOthers;
-                        //}
+                        else if (boolContainOpenerList == true)
+                        {
+                            var elementWithListMethod = ContainListMthod(newElementToUpperString);
+                            _ = elementWithListMethod;
+                            string elementsTypesOthersFromRegex = Regex.Replace(elementWithListMethod, @"[""]", string.Empty);
+                            var elementTypeOthers = elementsTypesOthersFromRegex.Replace(":", " =");
+                            newJsonData += elementTypeOthers;
+                        }
+                        else if (boolContainClosedList == true)
+                        {
+                            var closedListElement = ClosedListMethod(newElementToUpperString);
+                        }
                         else
                         {
                             var elementsTypesStringFromRemove = RemoveFirstsAsps(newElementToUpperString);
@@ -69,6 +77,11 @@ namespace oneTwoTree.ConvertJsonToObject
                         //    var elementTypeOthers = elementsTypesOthersFromRegex.Replace(":", " =");
                         //    newJsonData += elementTypeOthers;
                         //}
+                        else if (boolContainClosedList == true)
+                        {
+                            var closedListElement = ClosedListMethod(newElementFirstLetterUpperOthers);
+                            newJsonData += closedListElement;
+                        }
                         else
                         {
                             string elementsTypesOthersFromRegex = Regex.Replace(newElementFirstLetterUpperOthers, @"[""]", string.Empty);
@@ -168,12 +181,20 @@ namespace oneTwoTree.ConvertJsonToObject
                     }
                     if (countDoublePoint == 1)
                     {
-                        newElementWithClass += $" = new List<{className}>";
+                        newElementWithClass += $" = new List<{className}> \r\n";
+                        newElementWithClass += $"  "+"{"+$" \r\n    new {className}";
                         countDoublePoint += 1;
                     }
                     else
                     {
-                        newElementWithClass += element[i];
+                        if (element[i] == '[')
+                        {
+                            newElementWithClass += "";
+                        }
+                        else
+                        {
+                            newElementWithClass += element[i];
+                        }
                     }
                 }
                 catch (Exception ex)
@@ -184,6 +205,32 @@ namespace oneTwoTree.ConvertJsonToObject
             }
 
             return newElementWithClass;
+        }
+
+        private static string ClosedListMethod(string element)
+        {
+            string newExitElement = "";
+            for (int i = 1; i <= element.Length; i++)
+            {
+                try
+                {
+                    if (element[i] == ']')
+                    {
+                        newExitElement += "}";
+                    }
+                    else
+                    {
+                        newExitElement += element[i];
+                    }
+                }
+                catch (Exception ex)
+                {
+                    _ = ex;
+                    continue;
+                }
+            }
+
+            return newExitElement;
         }
 
         private static string UpperCaseOthers(string element)
