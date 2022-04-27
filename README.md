@@ -1,7 +1,7 @@
 # Json to CSharp
 
 Convert jsonPayload to Object C#
-- Take Payload to JsonData.json in /bin/...
+- Take Payload to JsonData.json in /bin/JsonToObjectJsonCSharp/JsonData.json
 - Execute console application and see console element
 - Element returns in console with new data C# Object.
 ```json
