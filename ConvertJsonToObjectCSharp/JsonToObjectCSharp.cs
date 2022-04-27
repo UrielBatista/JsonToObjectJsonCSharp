@@ -7,17 +7,15 @@ namespace oneTwoTree.ConvertJsonToObject
 {
     public class JsonToObjectCSharp
     {
-        public static void Executor()
+        public static void Executor(dynamic JsonData)
         {
-            List<dynamic> data = new List<dynamic>();
-            using (StreamReader r = new StreamReader("C:\\Users\\uriel_batista\\source\\repos\\ConversorJsonToObject\\ConversorJsonToObject\\ConvertJsonToObjectCSharp\\WeatherForecast.json"))
+            using (StreamReader r = new StreamReader(JsonData))
             {
                 string json = r.ReadToEnd();
                 var elemensJson = json.Split(",");
                 string newJsonData = "{";
 
                 // WIP - to duplicate name of class list in other objects in flow structure.
-                int countOppenerArray = 0;
                 foreach (var element in elemensJson)
                 {
                     int countAsps = CountAllAsps(element);
@@ -36,6 +34,10 @@ namespace oneTwoTree.ConvertJsonToObject
                             var elementWithClassMethod = ContainClassMthod(newElementToUpperString);
                             _ = elementWithClassMethod;
                             var elementsTypesStringFromRemove = RemoveFirstsAsps(elementWithClassMethod);
+
+                            var ifCountainsDoublePointsInString = elementsTypesStringFromRemove.Contains(":");
+                            _ = ifCountainsDoublePointsInString;
+
                             var elementTypeString = elementsTypesStringFromRemove.Replace(":", " =");
                             newJsonData += elementTypeString;
                         }
@@ -44,18 +46,29 @@ namespace oneTwoTree.ConvertJsonToObject
                             var elementWithListMethod = ContainListMthod(newElementToUpperString);
                             _ = elementWithListMethod;
                             string elementsTypesOthersFromRegex = Regex.Replace(elementWithListMethod, @"[""]", string.Empty);
+
+                            var ifCountainsDoublePointsInString = elementsTypesOthersFromRegex.Contains(":");
+                            _ = ifCountainsDoublePointsInString;
+
                             var elementTypeOthers = elementsTypesOthersFromRegex.Replace(":", " =");
                             newJsonData += elementTypeOthers;
-                        }
-                        else if (boolContainClosedList == true)
-                        {
-                            var closedListElement = ClosedListMethod(newElementToUpperString);
                         }
                         else
                         {
                             var elementsTypesStringFromRemove = RemoveFirstsAsps(newElementToUpperString);
-                            var elementTypeString = elementsTypesStringFromRemove.Replace(":", " =");
-                            newJsonData += elementTypeString;
+
+                            var ifCountainsDoublePointsInString = elementsTypesStringFromRemove.Contains(":");
+                            _ = ifCountainsDoublePointsInString;
+                             if (ifCountainsDoublePointsInString == true)
+                            {
+                                newJsonData += elementsTypesStringFromRemove;
+                            }
+                            else
+                            {
+                                var elementTypeString = elementsTypesStringFromRemove.Replace(":", " =");
+                                newJsonData += elementTypeString;
+                            }
+
                         }
                     }
                     else
@@ -77,11 +90,6 @@ namespace oneTwoTree.ConvertJsonToObject
                         //    var elementTypeOthers = elementsTypesOthersFromRegex.Replace(":", " =");
                         //    newJsonData += elementTypeOthers;
                         //}
-                        else if (boolContainClosedList == true)
-                        {
-                            var closedListElement = ClosedListMethod(newElementFirstLetterUpperOthers);
-                            newJsonData += closedListElement;
-                        }
                         else
                         {
                             string elementsTypesOthersFromRegex = Regex.Replace(newElementFirstLetterUpperOthers, @"[""]", string.Empty);

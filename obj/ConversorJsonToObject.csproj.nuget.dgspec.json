@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\uriel_batista\\source\\repos\\ConversorJsonToObject\\ConversorJsonToObject\\ConversorJsonToObject.csproj": {}
+    "C:\\Users\\uriel_batista\\Desktop\\ConversorJsonToObject\\ConversorJsonToObject\\ConversorJsonToObject.csproj": {}
   },
   "projects": {
-    "C:\\Users\\uriel_batista\\source\\repos\\ConversorJsonToObject\\ConversorJsonToObject\\ConversorJsonToObject.csproj": {
+    "C:\\Users\\uriel_batista\\Desktop\\ConversorJsonToObject\\ConversorJsonToObject\\ConversorJsonToObject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\uriel_batista\\source\\repos\\ConversorJsonToObject\\ConversorJsonToObject\\ConversorJsonToObject.csproj",
+        "projectUniqueName": "C:\\Users\\uriel_batista\\Desktop\\ConversorJsonToObject\\ConversorJsonToObject\\ConversorJsonToObject.csproj",
         "projectName": "ConversorJsonToObject",
-        "projectPath": "C:\\Users\\uriel_batista\\source\\repos\\ConversorJsonToObject\\ConversorJsonToObject\\ConversorJsonToObject.csproj",
+        "projectPath": "C:\\Users\\uriel_batista\\Desktop\\ConversorJsonToObject\\ConversorJsonToObject\\ConversorJsonToObject.csproj",
         "packagesPath": "C:\\Users\\uriel_batista\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\uriel_batista\\source\\repos\\ConversorJsonToObject\\ConversorJsonToObject\\obj\\",
+        "outputPath": "C:\\Users\\uriel_batista\\Desktop\\ConversorJsonToObject\\ConversorJsonToObject\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\uriel_batista\\AppData\\Roaming\\NuGet\\NuGet.Config",

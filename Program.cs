@@ -7,7 +7,8 @@ namespace ConversorJsonToObject
     {
         static void Main(string[] args)
         {
-            JsonToObjectCSharp.Executor();
+            string d = "ConvertJsonToObjectCSharp\\JsonData.json";
+            JsonToObjectCSharp.Executor(d);
         }
     }
 }
