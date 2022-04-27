@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Text.RegularExpressions;
 
@@ -38,28 +37,7 @@ namespace oneTwoTree.ConvertJsonToObject
                             var ifCountainsDoublePointsInString = elementsTypesStringFromRemove.Contains(":");
                             _ = ifCountainsDoublePointsInString;
 
-                            var elementTypeString = elementsTypesStringFromRemove.Replace(":", " =");
-                            newJsonData += elementTypeString;
-                        }
-                        else if (boolContainOpenerList == true)
-                        {
-                            var elementWithListMethod = ContainListMthod(newElementToUpperString);
-                            _ = elementWithListMethod;
-                            string elementsTypesOthersFromRegex = Regex.Replace(elementWithListMethod, @"[""]", string.Empty);
-
-                            var ifCountainsDoublePointsInString = elementsTypesOthersFromRegex.Contains(":");
-                            _ = ifCountainsDoublePointsInString;
-
-                            var elementTypeOthers = elementsTypesOthersFromRegex.Replace(":", " =");
-                            newJsonData += elementTypeOthers;
-                        }
-                        else
-                        {
-                            var elementsTypesStringFromRemove = RemoveFirstsAsps(newElementToUpperString);
-
-                            var ifCountainsDoublePointsInString = elementsTypesStringFromRemove.Contains(":");
-                            _ = ifCountainsDoublePointsInString;
-                             if (ifCountainsDoublePointsInString == true)
+                            if (ifCountainsDoublePointsInString == true)
                             {
                                 newJsonData += elementsTypesStringFromRemove;
                             }
@@ -68,7 +46,40 @@ namespace oneTwoTree.ConvertJsonToObject
                                 var elementTypeString = elementsTypesStringFromRemove.Replace(":", " =");
                                 newJsonData += elementTypeString;
                             }
+                        }
+                        else if (boolContainOpenerList == true)
+                        {
+                            var elementWithListMethod = ContainListMthod(newElementToUpperString);
+                            _ = elementWithListMethod;
+                            string elementsTypesOthersFromRegex = Regex.Replace(elementWithListMethod, @"[""]", string.Empty);
 
+                            var ifCountainsDoublePointsInOthers = elementsTypesOthersFromRegex.Contains(":");
+                            _ = ifCountainsDoublePointsInOthers;
+                            if (ifCountainsDoublePointsInOthers == true)
+                            {
+                                newJsonData += elementsTypesOthersFromRegex;
+                            }
+                            else
+                            {
+                                var elementTypeOthers = elementsTypesOthersFromRegex.Replace(":", " =");
+                                newJsonData += elementTypeOthers;
+                            }
+                        }
+                        else
+                        {
+                            var elementsTypesStringFromRemove = RemoveFirstsAsps(newElementToUpperString);
+
+                            var ifCountainsDoublePointsInString = elementsTypesStringFromRemove.Contains(":");
+                            _ = ifCountainsDoublePointsInString;
+                            if (ifCountainsDoublePointsInString == true)
+                            {
+                                newJsonData += elementsTypesStringFromRemove;
+                            }
+                            else
+                            {
+                                var elementTypeString = elementsTypesStringFromRemove.Replace(":", " =");
+                                newJsonData += elementTypeString;
+                            }
                         }
                     }
                     else
@@ -102,7 +113,7 @@ namespace oneTwoTree.ConvertJsonToObject
                 Console.WriteLine(newJsonData);
             }
 
-            Console.WriteLine("Finish Process!!");
+            Console.WriteLine($"\nFinish Process!!");
         }
 
         private static string ContainClassMthod(string element)
