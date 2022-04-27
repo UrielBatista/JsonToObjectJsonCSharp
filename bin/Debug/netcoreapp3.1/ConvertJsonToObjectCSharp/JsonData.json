@@ -1,72 +1,32 @@
-[
-  {
+{
+  "pessoas": {
     "id_Pessoas": "0001",
     "nome": "URIEL",
     "sobrenome": "BATISTA",
     "pessoas_Calc_Number": 798,
     "dataHora": "2021-12-12T19:14:05"
   },
-  {
-    "id_Pessoas": "0002",
-    "nome": "RICARDO",
-    "sobrenome": "SILVA",
-    "pessoas_Calc_Number": 666,
-    "dataHora": "2022-02-23T23:38:26"
-  },
-  {
-    "id_Pessoas": "0003",
-    "nome": "FLAVIO",
-    "sobrenome": "PESSOA",
-    "pessoas_Calc_Number": 65,
-    "dataHora": "2021-11-11T22:00:08"
-  },
-  {
-    "id_Pessoas": "0004",
-    "nome": "RANGEL",
-    "sobrenome": "VASCONCELOS",
-    "pessoas_Calc_Number": 88.95,
-    "dataHora": "2021-11-26T00:16:21"
-  },
-  {
-    "id_Pessoas": "0005",
-    "nome": "MARCELO",
-    "sobrenome": "CARVALHO",
-    "pessoas_Calc_Number": 44.65,
-    "dataHora": "2021-11-11T22:00:08"
-  },
-  {
-    "id_Pessoas": "0006",
-    "nome": "FELIPE",
-    "sobrenome": "SANTOS",
-    "pessoas_Calc_Number": 74,
-    "dataHora": "2021-11-11T22:00:08"
-  },
-  {
-    "id_Pessoas": "0007",
-    "nome": "LEVANDOSKY",
-    "sobrenome": "BERNARDS",
-    "pessoas_Calc_Number": 71,
-    "dataHora": "2021-12-02T13:43:25"
-  },
-  {
-    "id_Pessoas": "0008",
-    "nome": "DANIEL",
-    "sobrenome": "GURGEL",
-    "pessoas_Calc_Number": 143,
-    "dataHora": "2021-12-09T23:57:14"
-  },
-  {
-    "id_Pessoas": "0009",
-    "nome": "ANGELO",
-    "sobrenome": "PEREIRA",
-    "pessoas_Calc_Number": 786.46,
-    "dataHora": "2022-02-23T23:37:41"
-  },
-  {
-    "id_Pessoas": "9999",
-    "nome": "JEREMIAS",
-    "sobrenome": "SOAREZ",
-    "pessoas_Calc_Number": 999,
-    "dataHora": "2022-04-21T23:30:36"
-  }
-]
+  "food": [
+    {
+      "id_Food": "01",
+      "nome": "Macarronada com linguica",
+      "localDeVenda": "Bairro de Fatima, 2001",
+      "referenciaIdPessoa": "0001",
+      "precoComida": 22.5
+    },
+    {
+      "id_Food": "2",
+      "nome": "Macarrao com queijo",
+      "localDeVenda": "Aldeota-CE",
+      "referenciaIdPessoa": "0001",
+      "precoComida": 12
+    },
+    {
+      "id_Food": "6",
+      "nome": "Pastel de frango",
+      "localDeVenda": "Oliveira Paiva-CE",
+      "referenciaIdPessoa": "0001",
+      "precoComida": 17.5
+    }
+  ]
+}

@@ -138,7 +138,7 @@ namespace oneTwoTree.ConvertJsonToObject
                     }
                     if (countDoublePoint == 1)
                     {
-                        newElementWithClass += $" = new {className}";
+                        newElementWithClass += $" = new {className}\r\n ";
                         countDoublePoint += 1;
                     }
                     else
