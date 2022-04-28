@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Text;
 using System.Text.RegularExpressions;
 
 namespace oneTwoTree.ConvertJsonToObject
@@ -109,7 +110,11 @@ namespace oneTwoTree.ConvertJsonToObject
                     }
                 }
                 // principal response
-                Console.WriteLine(newJsonData);
+                var removeColchets = Regex.Replace(newJsonData, @"\[\]", string.Empty);
+                var newResultPayload = Regex.Replace(removeColchets, @"\]", "}");
+                string path = @"C:\\Users\\uriel_batista\\Desktop\\ConversorJsonToObject\\ConversorJsonToObject\\ConvertJsonToObjectCSharp\\OutPutData.txt";
+                File.AppendAllText(path, newResultPayload);
+                Console.WriteLine(newResultPayload);
             }
 
             Console.WriteLine($"\nFinish Process!!");
