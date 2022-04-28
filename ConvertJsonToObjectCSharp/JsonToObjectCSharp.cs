@@ -36,16 +36,10 @@ namespace oneTwoTree.ConvertJsonToObject
 
                             var ifCountainsDoublePointsInString = elementsTypesStringFromRemove.Contains(":");
                             _ = ifCountainsDoublePointsInString;
-
-                            if (ifCountainsDoublePointsInString == true)
-                            {
-                                newJsonData += elementsTypesStringFromRemove;
-                            }
-                            else
-                            {
-                                var elementTypeString = elementsTypesStringFromRemove.Replace(":", " =");
-                                newJsonData += elementTypeString;
-                            }
+                            
+                            var elementTypeString = elementsTypesStringFromRemove.Replace(":", " =");
+                            newJsonData += $"{elementTypeString},";
+                            
                         }
                         else if (boolContainOpenerList == true)
                         {
@@ -55,15 +49,8 @@ namespace oneTwoTree.ConvertJsonToObject
 
                             var ifCountainsDoublePointsInOthers = elementsTypesOthersFromRegex.Contains(":");
                             _ = ifCountainsDoublePointsInOthers;
-                            if (ifCountainsDoublePointsInOthers == true)
-                            {
-                                newJsonData += elementsTypesOthersFromRegex;
-                            }
-                            else
-                            {
-                                var elementTypeOthers = elementsTypesOthersFromRegex.Replace(":", " =");
-                                newJsonData += elementTypeOthers;
-                            }
+                            var elementTypeOthers = elementsTypesOthersFromRegex.Replace(":", " =");
+                            newJsonData += $"{elementTypeOthers},";
                         }
                         else
                         {
@@ -71,14 +58,26 @@ namespace oneTwoTree.ConvertJsonToObject
 
                             var ifCountainsDoublePointsInString = elementsTypesStringFromRemove.Contains(":");
                             _ = ifCountainsDoublePointsInString;
-                            if (ifCountainsDoublePointsInString == true)
+
+                            int countDots = 0;
+                            foreach (var dots in elementsTypesStringFromRemove)
                             {
-                                newJsonData += elementsTypesStringFromRemove;
+                                if (dots == ':')
+                                {
+                                    countDots += 1;
+                                }
+                            }
+
+                            if (countDots > 1)
+                            {
+                                string newElementData = Regex.Replace(elementsTypesStringFromRemove, @":\s", " = ");
+                                newJsonData += $"{newElementData},";
+
                             }
                             else
                             {
                                 var elementTypeString = elementsTypesStringFromRemove.Replace(":", " =");
-                                newJsonData += elementTypeString;
+                                newJsonData += $"{elementTypeString},";
                             }
                         }
                     }
@@ -91,7 +90,7 @@ namespace oneTwoTree.ConvertJsonToObject
                             _ = elementWithClassMethod;
                             string elementsTypesOthersFromRegex = Regex.Replace(elementWithClassMethod, @"[""]", string.Empty);
                             var elementTypeOthers = elementsTypesOthersFromRegex.Replace(":", " =");
-                            newJsonData += elementTypeOthers;
+                            newJsonData += $"{elementTypeOthers},";
                         }
                         //else if (boolContainList == true)
                         //{
@@ -105,7 +104,7 @@ namespace oneTwoTree.ConvertJsonToObject
                         {
                             string elementsTypesOthersFromRegex = Regex.Replace(newElementFirstLetterUpperOthers, @"[""]", string.Empty);
                             var elementTypeOthers = elementsTypesOthersFromRegex.Replace(":", " =");
-                            newJsonData += elementTypeOthers;
+                            newJsonData += $"{elementTypeOthers},";
                         }
                     }
                 }

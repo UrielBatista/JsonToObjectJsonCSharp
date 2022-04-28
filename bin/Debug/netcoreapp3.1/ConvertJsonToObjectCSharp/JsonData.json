@@ -1,21 +1,94 @@
-{
-  "legalFeeNet": 363.54,
-  "name": "Will",
-  "legalFeeVat": 72.708,
-  "discountNet": 0.0,
-  "discountVat": 0.0,
-  "otherNet": 12.0,
-  "otherVat": 2.4,
-  "disbursementNet": 220.0,
-  "disbursementVat": 0.0,
-  "amlCheck": null,
-  "legalSubTotal": 363.54,
-  "totalFee": 450.648,
-  "discounts": 0.0,
-  "vat": 75.108,
-  "discountedPrice": 360.5184,
-  "recommendedRetailPrice": 450.648,
-  "subTotal": 375.54,
-  "isDiscounted": false,
-  "customerCount": 3
-}
+[
+  {
+    "pessoas": {
+      "id_Pessoas": "0001",
+      "nome": "URIEL",
+      "sobrenome": "BATISTA",
+      "pessoas_Calc_Number": 798,
+      "dataHora": "2021-12-12T19:14:05"
+    },
+    "food": [
+      {
+        "id_Food": "01",
+        "nome": "Macarronada com linguica",
+        "localDeVenda": "Bairro de Fatima, 2001",
+        "referenciaIdPessoa": "0001",
+        "precoComida": 22.5
+      },
+      {
+        "id_Food": "2",
+        "nome": "Macarrao com queijo",
+        "localDeVenda": "Aldeota-CE",
+        "referenciaIdPessoa": "0001",
+        "precoComida": 12
+      },
+      {
+        "id_Food": "6",
+        "nome": "Pastel de frango",
+        "localDeVenda": "Oliveira Paiva-CE",
+        "referenciaIdPessoa": "0001",
+        "precoComida": 17.5
+      }
+    ]
+  },
+  {
+    "pessoas": {
+      "id_Pessoas": "0002",
+      "nome": "RICARDO",
+      "sobrenome": "SILVA",
+      "pessoas_Calc_Number": 666,
+      "dataHora": "2022-02-23T23:38:26"
+    },
+    "food": [
+      {
+        "id_Food": "4",
+        "nome": "Cuzidao de carne aurora",
+        "localDeVenda": "Aldeota-CE",
+        "referenciaIdPessoa": "0002",
+        "precoComida": 27
+      },
+      {
+        "id_Food": "5",
+        "nome": "x-salada e coca-cola",
+        "localDeVenda": "Oliveira Paiva-CE",
+        "referenciaIdPessoa": "0002",
+        "precoComida": 23
+      },
+      {
+        "id_Food": "6458",
+        "nome": "Sushi uramaki",
+        "localDeVenda": "Aldeota-CE",
+        "referenciaIdPessoa": "0002",
+        "precoComida": 11.5
+      }
+    ]
+  },
+  {
+    "pessoas": {
+      "id_Pessoas": "0005",
+      "nome": "MARCELO",
+      "sobrenome": "CARVALHO",
+      "pessoas_Calc_Number": 44.65,
+      "dataHora": "2021-11-11T22:00:08"
+    },
+    "food": [
+      {
+        "id_Food": "8",
+        "nome": "Sorvete de baunilha",
+        "localDeVenda": "Shopping Rio Mar Kennedy",
+        "referenciaIdPessoa": "0005",
+        "precoComida": 3.5
+      }
+    ]
+  },
+  {
+    "pessoas": {
+      "id_Pessoas": "0006",
+      "nome": "FELIPE",
+      "sobrenome": "SANTOS",
+      "pessoas_Calc_Number": 74,
+      "dataHora": "2021-11-11T22:00:08"
+    },
+    "food": []
+  }
+]
