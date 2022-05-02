@@ -1,4 +1,5 @@
 ﻿using oneTwoTree.ConvertJsonToObject;
+using System.Reflection;
 
 namespace ConversorJsonToObject
 {
@@ -6,9 +7,9 @@ namespace ConversorJsonToObject
     {
         static void Main(string[] args)
         {
-            string d = "ConvertJsonToObjectCSharp\\JsonData.json";
-            JsonToObjectCSharp.Executor(d);
-            // teste.Executor();
+            var CurrentDirectory = System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
+            var newCurrentDirectory = CurrentDirectory.Replace("\\bin\\Debug\\netcoreapp3.1", "\\ConvertJsonToObjectCSharp");
+            JsonToObjectCSharp.Executor(newCurrentDirectory);
         }
     }
 }

@@ -9,7 +9,8 @@ namespace oneTwoTree.ConvertJsonToObject
     {
         public static void Executor(dynamic JsonData)
         {
-            using (StreamReader r = new StreamReader(JsonData))
+            var localData = JsonData + "\\JsonData.json";
+            using (StreamReader r = new StreamReader(localData))
             {
                 string json = r.ReadToEnd();
                 var elemensJson = json.Split(",");
@@ -112,7 +113,7 @@ namespace oneTwoTree.ConvertJsonToObject
                 // principal response
                 var removeColchets = Regex.Replace(newJsonData, @"\[\]", string.Empty);
                 var newResultPayload = Regex.Replace(removeColchets, @"\]", "}");
-                string path = @"C:\\Users\\uriel_batista\\Desktop\\ConversorJsonToObject\\ConversorJsonToObject\\ConvertJsonToObjectCSharp\\OutPutData.txt";
+                var path = JsonData + "\\OutPutData.txt";
                 File.AppendAllText(path, newResultPayload);
                 Console.WriteLine(newResultPayload);
             }
