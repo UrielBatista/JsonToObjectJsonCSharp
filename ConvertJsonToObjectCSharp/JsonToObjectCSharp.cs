@@ -30,18 +30,38 @@ namespace oneTwoTree.ConvertJsonToObject
                     if (countAsps >= 4)
                     {
                         var newElementToUpperString = UpperCaseString(element);
+                        var countBrackets = CountLeftCurlyBracket(newElementToUpperString);
                         if (boolContainClass == true)
                         {
-                            var elementWithClassMethod = ContainClassMthod(newElementToUpperString);
-                            _ = elementWithClassMethod;
-                            var elementsTypesStringFromRemove = RemoveFirstsAsps(elementWithClassMethod);
+                            if (countBrackets >= 2)
+                            {
+                                countBrackets--;
+                                for (int i = 0; i <= countBrackets; i++)
+                                {
+                                    newElementToUpperString = ContainClassMthod(newElementToUpperString);
+                                    _ = newElementToUpperString;
+                                }
+                               
+                                var elementsTypesStringFromRemove = RemoveFirstsAsps(newElementToUpperString);
 
-                            var ifCountainsDoublePointsInString = elementsTypesStringFromRemove.Contains(":");
-                            _ = ifCountainsDoublePointsInString;
-                            
-                            var elementTypeString = elementsTypesStringFromRemove.Replace(":", " =");
-                            newJsonData += $"{elementTypeString},";
-                            
+                                var ifCountainsDoublePointsInString = elementsTypesStringFromRemove.Contains(":");
+                                _ = ifCountainsDoublePointsInString;
+
+                                var elementTypeString = elementsTypesStringFromRemove.Replace(":", " =");
+                                newJsonData += $"{elementTypeString},";
+                            }
+                            else
+                            {
+                                var elementWithClassMethod = ContainClassMthod(newElementToUpperString);
+                                _ = elementWithClassMethod;
+                                var elementsTypesStringFromRemove = RemoveFirstsAsps(elementWithClassMethod);
+
+                                var ifCountainsDoublePointsInString = elementsTypesStringFromRemove.Contains(":");
+                                _ = ifCountainsDoublePointsInString;
+
+                                var elementTypeString = elementsTypesStringFromRemove.Replace(":", " =");
+                                newJsonData += $"{elementTypeString},";
+                            }
                         }
                         else if (boolContainOpenerList == true)
                         {
@@ -119,6 +139,20 @@ namespace oneTwoTree.ConvertJsonToObject
             }
 
             Console.WriteLine($"\nFinish Process!!");
+        }
+
+        private static int CountLeftCurlyBracket(string element)
+        {
+            int countElement = 0;
+            foreach (var bracket in element)
+            {
+                if (bracket == '{')
+                {
+                    countElement += 1;
+                }
+            }
+
+            return countElement;
         }
 
         private static string ContainClassMthod(string element)

@@ -1,0 +1,75 @@
+{
+  Pessoas = new Pessoas
+  {
+    "Data" = {
+      "Data1" =  "Uriel"
+    },
+    Id_Pessoas = "0001",
+    Nome = "URIEL",
+    Sobrenome = "BATISTA",
+    Pessoas_Calc_Number = 798,
+    DataHora = "2021-12-12T19:14:05"
+  },
+  Food = new List<Food> 
+  { 
+    new Food 
+    {
+      Id_Food = 01,
+      Nome = "Macarronada com linguica",
+      LocalDeVenda = Bairro de Fatima,2001,
+      ReferenciaIdPessoa = "0001",
+      PrecoComida = 22.5
+    },
+    {
+      Id_Food = "2",
+      Nome = "Macarrao com queijo",
+      LocalDeVenda = "Aldeota-CE",
+      ReferenciaIdPessoa = "0001",
+      PrecoComida = 12
+    },
+    {
+      Id_Food = "6",
+      Nome = "Pastel de frango",
+      LocalDeVenda = "Oliveira Paiva-CE",
+      ReferenciaIdPessoa = "0001",
+      PrecoComida = 17.5
+    }
+  }
+},{  Pessoas = new Pessoas
+  {
+    "Data" = new Pessoas
+  {
+      "Data1" =  "Uriel"
+    },
+    Id_Pessoas = "0001",
+    Nome = "URIEL",
+    Sobrenome = "BATISTA",
+    Pessoas_Calc_Number = 798,
+    DataHora = "2021-12-12T19:14:05"
+  },
+  Food = new List<Food> 
+  { 
+    new Food 
+    {
+      Id_Food = 01,
+      Nome = "Macarronada com linguica",
+      LocalDeVenda = Bairro de Fatima,2001,
+      ReferenciaIdPessoa = "0001",
+      PrecoComida = 22.5
+    },
+    {
+      Id_Food = "2",
+      Nome = "Macarrao com queijo",
+      LocalDeVenda = "Aldeota-CE",
+      ReferenciaIdPessoa = "0001",
+      PrecoComida = 12
+    },
+    {
+      Id_Food = "6",
+      Nome = "Pastel de frango",
+      LocalDeVenda = "Oliveira Paiva-CE",
+      ReferenciaIdPessoa = "0001",
+      PrecoComida = 17.5
+    }
+  }
+},
